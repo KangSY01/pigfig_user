@@ -197,7 +197,7 @@ const GamesScreen = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="flex-1 flex flex-col h-full overflow-hidden pt-16"
+    className="flex-1 flex flex-col h-full overflow-hidden pt-20"
   >
     <div className="flex-1 px-4 pb-2 flex flex-col">
       <div className="mb-4 text-center">
