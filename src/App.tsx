@@ -201,8 +201,8 @@ const GamesScreen = () => (
   >
     <div className="flex-1 px-4 pb-2 flex flex-col">
       <div className="mb-4 text-center">
-        <h2 className="text-[18px] font-extrabold text-brand-pink mb-0.5">🎮 Pig.Fig. 게임</h2>
-        <p className="text-brand-green text-[11px] font-bold">게임으로 아이템을 모아 돼지를 쫓아내세요!</p>
+        <h2 className="text-[25px] font-extrabold text-brand-pink mb-0.5">🎮 Pig.Fig. 게임</h2>
+        <p className="text-brand-green text-[18px] font-bold">게임으로 아이템을 모아 돼지를 쫓아내세요!</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-4 shrink min-h-0">
@@ -237,7 +237,7 @@ const GamesScreen = () => (
       </div>
 
       <div className="bg-white rounded-2xl p-3 flex items-center justify-between shadow-sm border border-gray-100 mb-2">
-        <span className="text-[11px] font-bold text-brand-green">보유 아이템</span>
+        <span className="text-[18px] font-bold text-brand-green">보유 아이템</span>
         <div className="flex items-center gap-4">
           {[
             { icon: <SprayCan size={18} className="text-brand-pink" />, count: 2 },
@@ -264,7 +264,7 @@ const MyPageScreen = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="flex-1 flex flex-col pt-16 h-full overflow-hidden"
+    className="flex-1 flex flex-col pt-20 h-full overflow-hidden"
   >
     <div className="flex-1 px-4 py-3 space-y-3 flex flex-col">
       <div className="bg-white rounded-3xl p-3 flex flex-col items-center shadow-sm border border-gray-100">
@@ -273,7 +273,7 @@ const MyPageScreen = () => (
         </div>
         <h2 className="text-sm font-extrabold text-slate-800 mb-1">김입양</h2>
         <div className="bg-[#E8F5E3] px-2 py-0.5 rounded-full flex items-center gap-1">
-          <span className="text-brand-green text-[10px] font-bold">입양 중: 1그루</span>
+          <span className="text-brand-green text-[12px] font-bold">입양 중: 1그루</span>
           <span className="text-[10px]">🌱</span>
         </div>
       </div>
@@ -289,12 +289,12 @@ const MyPageScreen = () => (
         ].map((item, i, arr) => (
           <div 
             key={i} 
-            className={`flex items-center px-4 h-11 active:bg-gray-50 transition-colors cursor-pointer ${i !== arr.length - 1 ? 'border-b border-[#F0F0F0]' : ''}`}
+            className={`flex items-center px-4 h-15 active:bg-gray-50 transition-colors cursor-pointer ${i !== arr.length - 1 ? 'border-b border-[#F0F0F0]' : ''}`}
           >
-            <div className={`w-7 h-7 ${item.color} rounded-full flex items-center justify-center text-sm`}>
+            <div className={`w-9 h-9 ${item.color} rounded-full flex items-center justify-center text-sm`}>
               {item.icon}
             </div>
-            <span className="flex-1 ml-3 text-[13px] font-bold text-slate-700">{item.label}</span>
+            <span className="flex-1 ml-3 text-[15px] font-bold text-slate-700">{item.label}</span>
             <ChevronRight size={16} className="text-gray-300" />
           </div>
         ))}
