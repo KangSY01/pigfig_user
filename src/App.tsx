@@ -92,14 +92,14 @@ const HomeScreen = () => (
     exit={{ opacity: 0 }}
     className="h-full flex flex-col relative overflow-hidden"
   >
-    <div className="flex-1 flex flex-col pt-16 pb-2">
+    <div className="flex-1 flex flex-col pt-20 pb-2">
       <div className="px-6 mt-[10px] mb-1">
         <motion.div 
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="bg-brand-pink/90 backdrop-blur-sm px-5 py-1.5 rounded-full flex justify-center shadow-md mx-auto max-w-fit"
         >
-          <span className="text-white text-[11px] font-medium">3일 동안 자리를 비웠더니...</span>
+          <span className="text-white text-[15px] font-medium">3일 동안 자리를 비웠더니...</span>
         </motion.div>
       </div>
 
@@ -108,7 +108,7 @@ const HomeScreen = () => (
           <TreeAsset scale={1.2} />
         </div>
 
-        <div className="absolute bottom-[22%] left-1/2 -translate-x-[75px] z-20">
+        <div className="absolute bottom-[9%] left-1/2 -translate-x-[75px] z-20">
           <div className="relative">
             <motion.div 
               initial={{ scale: 0, opacity: 0 }}
@@ -116,9 +116,9 @@ const HomeScreen = () => (
               transition={{ delay: 1 }}
               className="absolute -top-10 -right-2 bg-white px-3 py-1 rounded-xl rounded-bl-none shadow-sm border border-gray-100 whitespace-nowrap"
             >
-              <span className="text-[10px] font-bold text-gray-800">꿀꿀~ 내가 왔다!</span>
+              <span className="text-[15px] font-bold text-gray-800">꿀꿀~ 내가 왔다!</span>
             </motion.div>
-            <PigAsset size="sm" />
+            <PigAsset size="md" />
           </div>
         </div>
 
@@ -136,7 +136,7 @@ const HomeScreen = () => (
               <button className="w-10 h-10 bg-white rounded-full border border-gray-100 shadow-sm flex items-center justify-center">
                 {React.cloneElement(item.icon as React.ReactElement, { size: 18 })}
               </button>
-              <span className="text-[9px] font-medium text-gray-500">{item.label}</span>
+              <span className="text-[15px] font-medium text-gray-500">{item.label}</span>
             </motion.div>
           ))}
         </div>
@@ -145,8 +145,8 @@ const HomeScreen = () => (
       <div className="px-5 mb-2">
         <div className="bg-white/70 backdrop-blur-md p-3.5 rounded-[2rem] border border-white shadow-lg">
           <div className="flex items-center justify-center gap-1 mb-2">
-            <span className="text-sm font-bold text-gray-800">나의 무화과</span>
-            <span className="text-sm">🌱</span>
+            <span className="text-lg font-bold text-gray-800">나의 무화과</span>
+            <span className="text-lg">🌱</span>
           </div>
           
           <div className="relative">
@@ -158,11 +158,11 @@ const HomeScreen = () => (
               />
             </div>
             <div className="flex justify-end mt-1">
-              <span className="text-[9px] font-bold text-gray-400">3/5단계</span>
+              <span className="text-[12px] font-bold text-gray-400">3/5단계</span>
             </div>
           </div>
           
-          <p className="text-center text-[9px] text-gray-400 font-medium">마지막 케어: 오늘</p>
+          <p className="text-center text-[12px] text-gray-400 font-medium">마지막 케어: 오늘</p>
         </div>
       </div>
     </div>
@@ -274,7 +274,7 @@ const MyPageScreen = () => (
         <h2 className="text-sm font-extrabold text-slate-800 mb-1">김입양</h2>
         <div className="bg-[#E8F5E3] px-2 py-0.5 rounded-full flex items-center gap-1">
           <span className="text-brand-green text-[12px] font-bold">입양 중: 1그루</span>
-          <span className="text-[10px]">🌱</span>
+          <span className="text-[12px]">🌱</span>
         </div>
       </div>
 
@@ -321,11 +321,11 @@ const PruningScreen = ({ onComplete }: { onComplete: () => void; key?: string })
     <div className="flex-1 flex flex-col items-center pt-24 px-6 z-10">
       <div className="flex items-center gap-1.5 mb-6">
         <div className="w-2.5 h-2.5 bg-brand-pink rounded-full"></div>
-        <span className="text-[11px] font-bold text-brand-pink tracking-tight">STEP 1/1</span>
+        <span className="text-[15px] font-bold text-brand-pink tracking-tight">STEP 1/1</span>
       </div>
 
-      <h1 className="text-2xl font-extrabold text-brand-pink mb-2 font-rounded">첫 가지치기를 해주세요!</h1>
-      <p className="text-brand-green text-sm font-medium mb-12">꾹 눌러서 가지를 잘라보세요</p>
+      <h1 className="text-[30px] font-extrabold text-brand-pink mb-2 font-rounded">첫 가지치기를 해주세요!</h1>
+      <p className="text-brand-green text-lg font-medium mb-12">꾹 눌러서 가지를 잘라보세요</p>
 
       <div className="relative flex-1 w-full flex items-center justify-center">
         <div className="relative h-64 w-2">
@@ -412,8 +412,8 @@ const RoleSelectionScreen = ({ onSelect }: { onSelect: (role: 'adopter' | 'careg
       </div>
 
       <div className="mt-12 flex flex-col items-center gap-1 opacity-60">
-        <p className="text-gray-500 text-[11px]">역할은 나중에 변경할 수 없어요</p>
-        <span className="text-gray-400 text-[10px]">v1.0.0</span>
+        <p className="text-gray-500 text-[12px]">역할은 나중에 변경할 수 없어요</p>
+        <span className="text-gray-400 text-[12px]">v1.0.0</span>
       </div>
     </div>
   </motion.div>
@@ -431,7 +431,7 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
         <h2 className="text-[20px] font-extrabold text-slate-800 tracking-tight">🔬 묘목 상태 분석</h2>
         <p className="text-brand-green text-[15px] font-medium leading-tight">AI가 묘목 상태를 자동으로 분석해요</p>
       </div>
-      <button onClick={onBack} className="text-gray-400 text-[10px] font-bold">닫기</button>
+      <button onClick={onBack} className="text-gray-400 text-[12px] font-bold">닫기</button>
     </div>
 
     <div className="flex-1 px-4 space-y-2 overflow-hidden flex flex-col">
@@ -482,7 +482,7 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
               <div className="text-xs">✨</div>
               <span className="text-[15px] font-extrabold text-slate-800">AI 분석 리포트</span>
             </div>
-            <span className="text-gray-400 text-[10px]">2026.05.08 10:23</span>
+            <span className="text-gray-400 text-[12px]">2026.05.08 10:23</span>
           </div>
           
           <div className="h-[1px] bg-[#FFE0E6] w-full" />
@@ -564,7 +564,7 @@ const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: strin
           <div className="flex-1 overflow-hidden">
             <div className="flex items-center gap-1.5 mb-1">
               <h3 className="text-[15px] font-bold text-slate-800 truncate">무화과 {seedling.id}</h3>
-              <div className={`${seedling.statusColor} text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
+              <div className={`${seedling.statusColor} text-white text-[12px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
                 {seedling.status}
               </div>
             </div>
@@ -760,7 +760,7 @@ const CaregiverHomeScreen = () => {
         >
           <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${caregiverTab === 'home' ? 'opacity-100' : 'opacity-0'}`} />
           <Home size={22} strokeWidth={2.5} className={caregiverTab === 'home' ? 'text-brand-green' : 'text-gray-300'} />
-          <span className={`text-[10px] font-extrabold ${caregiverTab === 'home' ? 'text-brand-green' : 'text-gray-400'}`}>홈</span>
+          <span className={`text-[12px] font-extrabold ${caregiverTab === 'home' ? 'text-brand-green' : 'text-gray-400'}`}>홈</span>
         </button>
         
         <button 
@@ -769,7 +769,7 @@ const CaregiverHomeScreen = () => {
         >
           <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${caregiverTab === 'log' ? 'opacity-100' : 'opacity-0'}`} />
           <span className={`text-2xl ${caregiverTab === 'log' ? 'grayscale-0' : 'grayscale opacity-50'}`}>📋</span>
-          <span className={`text-[10px] font-extrabold ${caregiverTab === 'log' ? 'text-brand-green' : 'text-gray-400'}`}>일지</span>
+          <span className={`text-[12px] font-extrabold ${caregiverTab === 'log' ? 'text-brand-green' : 'text-gray-400'}`}>일지</span>
         </button>
 
         <button 
@@ -778,7 +778,7 @@ const CaregiverHomeScreen = () => {
         >
           <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${caregiverTab === 'check' ? 'opacity-100' : 'opacity-0'}`} />
           <span className={`text-2xl ${caregiverTab === 'check' ? 'grayscale-0' : 'grayscale opacity-50'}`}>🌡️</span>
-          <span className={`text-[10px] font-extrabold ${caregiverTab === 'check' ? 'text-brand-green' : 'text-gray-400'}`}>환경점검</span>
+          <span className={`text-[12px] font-extrabold ${caregiverTab === 'check' ? 'text-brand-green' : 'text-gray-400'}`}>환경점검</span>
         </button>
       </nav>
     </motion.div>
@@ -824,7 +824,7 @@ export default function App() {
               >
                 <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'home' ? 'opacity-100' : 'opacity-0'}`} />
                 <Home size={22} strokeWidth={2.5} className={activeTab === 'home' ? 'text-brand-green' : 'text-gray-300'} />
-                <span className={`text-[10px] font-extrabold ${activeTab === 'home' ? 'text-brand-green' : 'text-gray-400'}`}>홈</span>
+                <span className={`text-[12px] font-extrabold ${activeTab === 'home' ? 'text-brand-green' : 'text-gray-400'}`}>홈</span>
               </button>
               
               <button 
@@ -833,7 +833,7 @@ export default function App() {
               >
                 <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'game' ? 'opacity-100' : 'opacity-0'}`} />
                 <Gamepad2 size={24} strokeWidth={2.5} className={activeTab === 'game' ? 'text-brand-green' : 'text-gray-300'} />
-                <span className={`text-[10px] font-extrabold ${activeTab === 'game' ? 'text-brand-green' : 'text-gray-400'}`}>게임</span>
+                <span className={`text-[12px] font-extrabold ${activeTab === 'game' ? 'text-brand-green' : 'text-gray-400'}`}>게임</span>
               </button>
 
               <button 
@@ -842,7 +842,7 @@ export default function App() {
               >
                 <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'mypage' ? 'opacity-100' : 'opacity-0'}`} />
                 <User size={22} strokeWidth={2.5} className={activeTab === 'mypage' ? 'text-brand-green' : 'text-gray-300'} />
-                <span className={`text-[10px] font-extrabold ${activeTab === 'mypage' ? 'text-brand-green' : 'text-gray-400'}`}>마이페이지</span>
+                <span className={`text-[12px] font-extrabold ${activeTab === 'mypage' ? 'text-brand-green' : 'text-gray-400'}`}>마이페이지</span>
               </button>
             </nav>
           </motion.div>
