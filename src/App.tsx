@@ -424,21 +424,21 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
     initial={{ opacity: 0, x: 20 }}
     animate={{ opacity: 1, x: 0 }}
     exit={{ opacity: 0, x: -20 }}
-    className="flex-1 flex flex-col pt-20 pb-4 overflow-hidden"
+    className="h-full flex flex-col pt-20 pb-2 overflow-hidden"
   >
-    <div className="px-5 mb-4 flex items-center justify-between">
+    <div className="px-5 mb-2 flex items-center justify-between">
       <div>
-        <h2 className="text-[18px] font-extrabold text-slate-800">🔬 묘목 상태 분석</h2>
-        <p className="text-brand-green text-[12px] font-medium">AI가 묘목 상태를 자동으로 분석해요</p>
+        <h2 className="text-[15px] font-extrabold text-slate-800 tracking-tight">🔬 묘목 상태 분석</h2>
+        <p className="text-brand-green text-[11px] font-medium leading-tight">AI가 묘목 상태를 자동으로 분석해요</p>
       </div>
-      <button onClick={onBack} className="text-gray-400 text-xs font-bold">닫기</button>
+      <button onClick={onBack} className="text-gray-400 text-[10px] font-bold">닫기</button>
     </div>
 
-    <div className="flex-1 px-4 space-y-4 overflow-y-auto pb-4">
+    <div className="flex-1 px-4 space-y-2 overflow-hidden flex flex-col">
       {/* Analyzed Photo Display */}
-      <div className="bg-white rounded-2xl h-40 relative flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm mx-1">
-        <div className="opacity-60 scale-75 pt-10">
-          <TreeAsset scale={0.8} />
+      <div className="bg-white rounded-2xl h-24 relative flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm mx-1">
+        <div className="opacity-60 scale-50 pt-4">
+          <TreeAsset scale={0.6} />
         </div>
         {/* Scan Line Animation */}
         <motion.div 
@@ -446,81 +446,80 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           className="absolute left-0 right-0 h-0.5 bg-brand-green/30 shadow-[0_0_10px_rgba(125,200,122,0.5)] z-20"
         />
-        <div className="absolute top-3 right-3 bg-brand-green text-white text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
+        <div className="absolute top-2 right-2 bg-brand-green text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-sm">
           분석 완료 ✓
         </div>
-        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 opacity-60">
-          <div className="w-4 h-4 bg-orange-400 rounded-sm flex items-center justify-center text-[10px] text-white font-black italic">TF</div>
-          <span className="text-gray-500 text-[9px] font-bold">TensorFlow</span>
+        <div className="absolute bottom-2 left-2 flex items-center gap-1 opacity-60">
+          <div className="w-3.5 h-3.5 bg-orange-400 rounded-sm flex items-center justify-center text-[8px] text-white font-black italic">TF</div>
+          <span className="text-gray-500 text-[8px] font-bold">TensorFlow</span>
         </div>
       </div>
 
       {/* Status Tags Section */}
-      <div>
-        <h3 className="text-[13px] font-bold text-slate-800 mb-3 ml-1">분석 결과</h3>
-        <div className="grid grid-cols-2 gap-2">
-          <div className="bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 opacity-50">
+      <div className="space-y-1.5">
+        <h3 className="text-[12px] font-bold text-slate-800 ml-1">분석 결과</h3>
+        <div className="grid grid-cols-2 gap-1.5">
+          <div className="bg-white border border-brand-green/30 text-brand-green text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
              ✓ 정상
           </div>
-          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 opacity-50">
+          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
              ✓ 수분부족
           </div>
-          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 opacity-50">
+          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
              ✓ 과습
           </div>
-          <div className="bg-brand-pink text-white text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 shadow-sm">
+          <div className="bg-brand-pink text-white text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 shadow-sm">
              ⚠ 조명이상
           </div>
         </div>
       </div>
 
       {/* AI Report Card */}
-      <div className="bg-[#FFF5F7] rounded-2xl p-4 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mx-1">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-1.5">
-            <div className="text-sm">✨</div>
-            <span className="text-[14px] font-extrabold text-slate-800">AI 분석 리포트</span>
+      <div className="bg-[#FFF5F7] rounded-2xl p-3 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mx-1 flex-1 flex flex-col justify-between overflow-hidden">
+        <div className="space-y-1.5 flex-1 flex flex-col overflow-hidden">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <div className="text-xs">✨</div>
+              <span className="text-[12px] font-extrabold text-slate-800">AI 분석 리포트</span>
+            </div>
+            <span className="text-gray-400 text-[8px]">2026.05.08 10:23</span>
           </div>
-          <span className="text-gray-400 text-[10px]">2026.05.08 오전 10:23</span>
-        </div>
-        
-        <div className="h-[1px] bg-[#FFE0E6] w-full mb-3" />
+          
+          <div className="h-[1px] bg-[#FFE0E6] w-full" />
 
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-gray-400 text-[11px] font-bold">감지된 이상</span>
-          <div className="bg-brand-pink text-white text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
-            ⚠ 조명이상
+          <div className="flex items-center justify-between">
+            <span className="text-gray-400 text-[10px] font-bold">감지된 이상</span>
+            <div className="bg-brand-pink text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold shadow-sm">
+              ⚠ 조명이상
+            </div>
           </div>
-        </div>
 
-        <div className="mb-4">
-          <h4 className="text-brand-pink font-bold text-[13px] mb-1">조명이상이 감지되었습니다.</h4>
-          <p className="text-gray-500 text-[12px] leading-relaxed">
-            보광등 위치를 조정하고 재촬영해주세요.
-          </p>
-        </div>
+          <div className="overflow-hidden">
+            <h4 className="text-brand-pink font-bold text-[11px] leading-tight">조명이상이 감지되었습니다.</h4>
+          </div>
 
-        <div className="space-y-2">
-          <h5 className="text-brand-green font-bold text-[12px]">권장 조치</h5>
-          <div className="space-y-1.5">
-            {[
-              "LED 보광등을 식물 위 30cm 위치로 조정",
-              "조도 기준치: 2000~3000 lux",
-              "조치 후 사진을 다시 업로드해주세요"
-            ].map((text, i) => (
-              <div key={i} className="flex items-start gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-brand-green/20 flex items-center justify-center mt-0.5 shrink-0">
-                  <div className="w-1.5 h-1.5 bg-brand-green rounded-full"></div>
+          <div className="space-y-1">
+            <h5 className="text-brand-green font-bold text-[11px]">권장 조치</h5>
+            <div className="space-y-1">
+              {[
+                "보광등 위치 30cm 조정",
+                "조도: 2000~3000 lux",
+                "재촬영 후 업로드"
+              ].map((text, i) => (
+                <div key={i} className="flex items-start gap-1">
+                  <div className="w-2.5 h-2.5 rounded-full bg-brand-green/20 flex items-center justify-center mt-0.5 shrink-0">
+                    <div className="w-1 h-1 bg-brand-green rounded-full"></div>
+                  </div>
+                  <span className="text-gray-500 text-[10px] leading-tight">{text}</span>
                 </div>
-                <span className="text-gray-500 text-[11px] leading-tight">{text}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-end gap-1 opacity-60">
-          <span className="text-gray-400 text-[9px] italic font-serif">powered by Gemini</span>
-          <div className="text-[10px]">✨</div>
+        <div className="mt-1 flex items-center justify-end gap-1 opacity-60">
+          <span className="text-gray-400 text-[8px] italic font-serif">powered by Gemini</span>
+          <div className="text-[8px]">✨</div>
         </div>
       </div>
     </div>
@@ -528,28 +527,28 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
 );
 
 const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: string) => void }) => (
-  <div className="flex-1 flex flex-col pt-20 pb-2 overflow-hidden">
+  <div className="h-full flex flex-col pt-20 pb-2 overflow-hidden">
     {/* Summary Stat Cards Row */}
-    <div className="grid grid-cols-3 gap-2 px-4 mb-6">
+    <div className="grid grid-cols-3 gap-2 px-4 mb-3">
       {[
         { value: "12", label: "담당 묘목", color: "text-brand-green" },
         { value: "3", label: "완성 임박", color: "text-brand-pink" },
         { value: "1", label: "이상 감지", color: "text-orange-400" }
       ].map((stat, i) => (
-        <div key={i} className="bg-white rounded-2xl p-3 flex flex-col items-center justify-center shadow-sm border border-gray-50">
-          <span className={`text-[20px] font-extrabold ${stat.color}`}>{stat.value}</span>
-          <span className="text-gray-400 text-[10px] whitespace-nowrap">{stat.label}</span>
+        <div key={i} className="bg-white rounded-2xl p-2 flex flex-col items-center justify-center shadow-sm border border-gray-50">
+          <span className={`text-[16px] font-extrabold ${stat.color}`}>{stat.value}</span>
+          <span className="text-gray-400 text-[9px] whitespace-nowrap">{stat.label}</span>
         </div>
       ))}
     </div>
 
     {/* Seedling List Header */}
-    <div className="px-4 mb-3">
-      <h2 className="text-[14px] font-extrabold text-slate-800">담당 묘목 목록</h2>
+    <div className="px-4 mb-2">
+      <h2 className="text-[13px] font-extrabold text-slate-800">담당 묘목 목록</h2>
     </div>
 
     {/* Seedling List */}
-    <div className="flex-1 px-4 space-y-2 overflow-y-auto flex flex-col pb-4">
+    <div className="flex-1 px-4 space-y-1.5 overflow-hidden flex flex-col">
       {[
         { id: "#001", adopter: "김입양", step: "3/5", status: "정상", statusColor: "bg-brand-green" },
         { id: "#002", adopter: "이돌봄", step: "4/5", status: "정상", statusColor: "bg-brand-green" },
@@ -558,26 +557,26 @@ const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: strin
         <button 
           key={i} 
           onClick={() => onSelectSeedling(seedling.id)}
-          className="bg-white rounded-2xl p-3 flex items-center gap-3 shadow-sm border border-gray-50 text-left active:bg-gray-50 transition-colors"
+          className="bg-white rounded-2xl p-2.5 flex items-center gap-2.5 shadow-sm border border-gray-50 text-left active:bg-gray-50 transition-colors"
         >
-          <div className="w-11 h-11 bg-brand-green/20 rounded-xl flex items-center justify-center overflow-hidden shrink-0">
-            <div className="scale-50 translate-y-3">
-              <TreeAsset scale={0.5} />
+          <div className="w-9 h-9 bg-brand-green/20 rounded-xl flex items-center justify-center overflow-hidden shrink-0">
+            <div className="scale-40 translate-y-2">
+              <TreeAsset scale={0.4} />
             </div>
           </div>
           <div className="flex-1 overflow-hidden">
-            <div className="flex items-center gap-1.5 mb-0.5">
-              <h3 className="text-[13px] font-bold text-slate-800 truncate">무화과 {seedling.id}</h3>
-              <div className={`${seedling.statusColor} text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
+            <div className="flex items-center gap-1.5 mb-1">
+              <h3 className="text-[12px] font-bold text-slate-800 truncate">무화과 {seedling.id}</h3>
+              <div className={`${seedling.statusColor} text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
                 {seedling.status}
               </div>
             </div>
-            <p className="text-gray-400 text-[10px] mb-1.5">입양자: {seedling.adopter}</p>
+            <p className="text-gray-400 text-[9px] mb-1">입양자: {seedling.adopter}</p>
             <div className="flex items-center gap-2">
-              <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
                 <div className="h-full bg-brand-green w-3/5"></div>
               </div>
-              <span className="text-[10px] font-bold text-brand-green shrink-0">{seedling.step}단계</span>
+              <span className="text-[9px] font-bold text-brand-green shrink-0">{seedling.step}</span>
             </div>
           </div>
         </button>
@@ -587,20 +586,20 @@ const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: strin
 );
 
 const CaregiverCheckScreen = () => (
-  <div className="flex-1 flex flex-col pt-20 pb-4 overflow-hidden">
-    <div className="px-5 mb-4">
-      <h2 className="text-[18px] font-extrabold text-slate-800">🌡 환경 점검</h2>
-      <p className="text-brand-green text-[12px] font-medium">재배지 방문 시 수치를 입력해주세요</p>
+  <div className="h-full flex flex-col pt-20 pb-2 overflow-hidden">
+    <div className="px-5 mb-2">
+      <h2 className="text-[15px] font-extrabold text-slate-800">🌡 환경 점검</h2>
+      <p className="text-brand-green text-[11px] font-medium leading-tight">재배지 방문 시 수치를 입력해주세요</p>
     </div>
 
-    <div className="flex-1 px-4 space-y-2 overflow-hidden flex flex-col mb-4">
+    <div className="flex-1 px-4 space-y-1.5 overflow-hidden flex flex-col mb-2">
       {[
         { 
           label: "온도", 
           value: "16°C", 
           status: "정상", 
           bgColor: "bg-orange-50", 
-          icon: <Sun className="text-orange-400" size={20} />, 
+          icon: <Sun className="text-orange-400" size={18} />, 
           statusColor: "bg-brand-green" 
         },
         { 
@@ -608,7 +607,7 @@ const CaregiverCheckScreen = () => (
           value: "82%", 
           status: "주의", 
           bgColor: "bg-blue-50", 
-          icon: <Droplets className="text-blue-400" size={20} />, 
+          icon: <Droplets className="text-blue-400" size={18} />, 
           statusColor: "bg-brand-pink" 
         },
         { 
@@ -616,39 +615,39 @@ const CaregiverCheckScreen = () => (
           value: "낮음", 
           status: "주의", 
           bgColor: "bg-yellow-50", 
-          icon: <Sun className="text-yellow-400" size={20} />, 
+          icon: <Sun className="text-yellow-400" size={18} />, 
           statusColor: "bg-brand-pink" 
         }
       ].map((item, i) => (
-        <div key={i} className="bg-white rounded-2xl p-4 flex items-center shadow-sm border border-gray-50">
-          <div className={`w-9 h-9 ${item.bgColor} rounded-full flex items-center justify-center mr-3`}>
+        <div key={i} className="bg-white rounded-2xl p-2.5 flex items-center shadow-sm border border-gray-50">
+          <div className={`w-8 h-8 ${item.bgColor} rounded-full flex items-center justify-center mr-2.5`}>
             {item.icon}
           </div>
           <div className="flex-1">
-            <span className="text-gray-400 text-[11px] font-bold">{item.label}</span>
-            <div className="text-[20px] font-extrabold text-slate-800 leading-none">{item.value}</div>
+            <span className="text-gray-400 text-[10px] font-bold">{item.label}</span>
+            <div className="text-[16px] font-extrabold text-slate-800 leading-none">{item.value}</div>
           </div>
-          <div className={`${item.statusColor} text-white text-[10px] px-2 py-0.5 rounded-full font-bold`}>
+          <div className={`${item.statusColor} text-white text-[9px] px-2 py-0.5 rounded-full font-bold`}>
             {item.status}
           </div>
         </div>
       ))}
 
       {/* AI Diagnosis Result Card */}
-      <div className="bg-[#FFF5F7] rounded-2xl p-4 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mt-2">
-        <div className="flex items-center gap-1.5 mb-2">
-          <div className="text-lg">✨</div>
-          <span className="text-[13px] font-bold text-slate-800">Gemini 진단 결과</span>
+      <div className="bg-[#FFF5F7] rounded-2xl p-3 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mt-1">
+        <div className="flex items-center gap-1 mb-1.5">
+          <div className="text-sm">✨</div>
+          <span className="text-[12px] font-bold text-slate-800">Gemini 진단 결과</span>
         </div>
-        <p className="text-gray-500 text-[12px] leading-relaxed">
+        <p className="text-gray-500 text-[11px] leading-relaxed">
           조도가 기준치 이하입니다. LED 보광등을 켜주세요.<br />
           현재 습도도 높아 통풍을 권장합니다.
         </p>
       </div>
     </div>
 
-    <div className="px-4 mb-2">
-      <button className="w-full bg-brand-green py-4 rounded-2xl text-white font-bold text-[15px] shadow-md active:scale-[0.98] transition-transform">
+    <div className="px-4 mb-1">
+      <button className="w-full bg-brand-green py-3 rounded-2xl text-white font-bold text-[14px] shadow-md active:scale-[0.98] transition-transform">
         조치 완료
       </button>
     </div>
@@ -659,33 +658,33 @@ const CaregiverLogScreen = () => (
   <motion.div
     initial={{ opacity: 0, scale: 0.98 }}
     animate={{ opacity: 1, scale: 1 }}
-    className="flex-1 flex flex-col pt-20 pb-4 overflow-hidden"
+    className="h-full flex flex-col pt-20 pb-2 overflow-hidden"
   >
-    <div className="px-5 mb-4">
-      <h2 className="text-[18px] font-extrabold text-slate-800">📋 오늘의 일지</h2>
-      <p className="text-brand-green text-[12px] font-medium">입양자에게 성장 기록을 전달해요</p>
+    <div className="px-5 mb-2">
+      <h2 className="text-[15px] font-extrabold text-slate-800">📋 오늘의 일지</h2>
+      <p className="text-brand-green text-[11px] font-medium">입양자에게 성장 기록을 전달해요</p>
     </div>
 
-    <div className="flex-1 px-4 space-y-4 overflow-y-auto pb-4 flex flex-col">
+    <div className="flex-1 px-4 space-y-2 overflow-hidden pb-2 flex flex-col overflow-y-hidden">
       {/* Photo Upload Area */}
-      <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
-        <div className="border-2 border-dashed border-gray-100 rounded-xl h-28 flex flex-col items-center justify-center gap-1 cursor-pointer active:bg-gray-50 transition-colors">
-          <Camera size={28} className="text-brand-green" />
+      <div className="bg-white rounded-2xl p-3 border border-gray-100 shadow-sm">
+        <div className="border-2 border-dashed border-gray-100 rounded-xl h-24 flex flex-col items-center justify-center gap-1 cursor-pointer active:bg-gray-50 transition-colors">
+          <Camera size={24} className="text-brand-green" />
           <div className="flex flex-col items-center">
-            <span className="text-[13px] font-bold text-brand-green">사진 추가하기</span>
-            <span className="text-gray-400 text-[11px]">묘목 상태를 찍어 업로드해주세요</span>
+            <span className="text-[12px] font-bold text-brand-green">사진 추가하기</span>
+            <span className="text-gray-400 text-[10px]">묘목 상태를 찍어 업로드해주세요</span>
           </div>
         </div>
       </div>
 
       {/* Growth Stage Selector */}
-      <div>
-        <h3 className="text-[13px] font-bold text-slate-800 mb-3 ml-1">성장 단계</h3>
-        <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
+      <div className="space-y-1.5">
+        <h3 className="text-[12px] font-bold text-slate-800 ml-1">성장 단계</h3>
+        <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
           {['새싹', '잎 성장 중', '가지 발달', '묘목 완성'].map((stage) => (
             <button 
               key={stage}
-              className={`px-4 py-2 rounded-full text-[12px] font-bold whitespace-nowrap transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-[11px] font-bold whitespace-nowrap transition-colors ${
                 stage === '잎 성장 중' 
                 ? 'bg-brand-green text-white shadow-sm' 
                 : 'bg-white border border-gray-200 text-gray-400'
@@ -698,15 +697,14 @@ const CaregiverLogScreen = () => (
       </div>
 
       {/* Text Input Area */}
-      <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex-1 min-h-[100px] relative">
+      <div className="bg-white rounded-2xl p-3 border border-gray-100 shadow-sm flex-1 min-h-[80px] relative overflow-hidden">
         <textarea 
-          className="w-full h-full text-[13px] text-slate-700 bg-transparent resize-none outline-none italic placeholder:text-gray-300"
+          className="w-full h-full text-[12px] text-slate-700 bg-transparent resize-none outline-none italic placeholder:text-gray-300"
           placeholder="오늘의 성장 기록을 남겨주세요..."
         />
-        {/* Subtle pink border on focus simulation via a thin line or just the existing card is fine */}
       </div>
 
-      <button className="w-full bg-brand-pink py-4 rounded-2xl text-white font-bold text-[15px] shadow-md active:scale-[0.98] transition-transform">
+      <button className="w-full bg-brand-pink py-3 rounded-2xl text-white font-bold text-[14px] shadow-md active:scale-[0.98] transition-transform">
         입양자에게 전달하기
       </button>
     </div>
