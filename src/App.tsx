@@ -74,7 +74,7 @@ const TopBar = () => (
       <div className="bg-brand-pink p-1 rounded-lg">
         <PiggyBank size={18} className="text-white" fill="white" />
       </div>
-      <span className="text-xl font-bold font-rounded text-brand-pink">Pig.Fig.</span>
+      <span className="text-2xl font-bold font-rounded text-brand-pink">Pig.Fig.</span>
     </div>
     <div className="relative">
       <Bell size={24} className="text-brand-pink" />
@@ -182,10 +182,10 @@ const GameCard = ({ title, subtitle, badge, icon, borderColor }: GameCardProps) 
     <div className="h-12 flex items-center justify-center mb-1">
       {icon}
     </div>
-    <h3 className="text-[12px] font-extrabold text-slate-800 mb-0.5">{title}</h3>
-    <p className="text-[10px] text-gray-400 leading-tight mb-2 px-1 line-clamp-2">{subtitle}</p>
+    <h3 className="text-[15px] font-extrabold text-slate-800 mb-0.5">{title}</h3>
+    <p className="text-[13px] text-gray-400 leading-tight mb-2 px-1 line-clamp-2">{subtitle}</p>
     <div className="mt-auto w-full flex justify-end">
-      <span className={`text-[9px] px-1.5 py-0.5 rounded-full text-white font-medium ${badge.color}`}>
+      <span className={`text-[13px] px-1.5 py-0.5 rounded-full text-white font-medium ${badge.color}`}>
         {badge.text}
       </span>
     </div>
@@ -428,8 +428,8 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
   >
     <div className="px-5 mb-2 flex items-center justify-between">
       <div>
-        <h2 className="text-[15px] font-extrabold text-slate-800 tracking-tight">🔬 묘목 상태 분석</h2>
-        <p className="text-brand-green text-[11px] font-medium leading-tight">AI가 묘목 상태를 자동으로 분석해요</p>
+        <h2 className="text-[20px] font-extrabold text-slate-800 tracking-tight">🔬 묘목 상태 분석</h2>
+        <p className="text-brand-green text-[15px] font-medium leading-tight">AI가 묘목 상태를 자동으로 분석해요</p>
       </div>
       <button onClick={onBack} className="text-gray-400 text-[10px] font-bold">닫기</button>
     </div>
@@ -457,18 +457,18 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
 
       {/* Status Tags Section */}
       <div className="space-y-1.5">
-        <h3 className="text-[12px] font-bold text-slate-800 ml-1">분석 결과</h3>
+        <h3 className="text-[15px] font-bold text-slate-800 ml-1">분석 결과</h3>
         <div className="grid grid-cols-2 gap-1.5">
-          <div className="bg-white border border-brand-green/30 text-brand-green text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
+          <div className="bg-white border border-brand-green/30 text-brand-green text-[15px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
              ✓ 정상
           </div>
-          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
+          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[15px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
              ✓ 수분부족
           </div>
-          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
+          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[15px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 opacity-50">
              ✓ 과습
           </div>
-          <div className="bg-brand-pink text-white text-[10px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 shadow-sm">
+          <div className="bg-brand-pink text-white text-[15px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 shadow-sm">
              ⚠ 조명이상
           </div>
         </div>
@@ -480,26 +480,23 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
               <div className="text-xs">✨</div>
-              <span className="text-[12px] font-extrabold text-slate-800">AI 분석 리포트</span>
+              <span className="text-[15px] font-extrabold text-slate-800">AI 분석 리포트</span>
             </div>
-            <span className="text-gray-400 text-[8px]">2026.05.08 10:23</span>
+            <span className="text-gray-400 text-[10px]">2026.05.08 10:23</span>
           </div>
           
           <div className="h-[1px] bg-[#FFE0E6] w-full" />
 
           <div className="flex items-center justify-between">
-            <span className="text-gray-400 text-[10px] font-bold">감지된 이상</span>
-            <div className="bg-brand-pink text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold shadow-sm">
-              ⚠ 조명이상
-            </div>
+            <span className="text-gray-400 text-[15px] font-bold">감지된 이상</span>
           </div>
 
           <div className="overflow-hidden">
-            <h4 className="text-brand-pink font-bold text-[11px] leading-tight">조명이상이 감지되었습니다.</h4>
+            <h4 className="text-brand-pink font-bold text-[15px] leading-tight">조명이상이 감지되었습니다.</h4>
           </div>
 
           <div className="space-y-1">
-            <h5 className="text-brand-green font-bold text-[11px]">권장 조치</h5>
+            <h5 className="text-brand-green font-bold text-[15px]">권장 조치</h5>
             <div className="space-y-1">
               {[
                 "보광등 위치 30cm 조정",
@@ -510,7 +507,7 @@ const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string 
                   <div className="w-2.5 h-2.5 rounded-full bg-brand-green/20 flex items-center justify-center mt-0.5 shrink-0">
                     <div className="w-1 h-1 bg-brand-green rounded-full"></div>
                   </div>
-                  <span className="text-gray-500 text-[10px] leading-tight">{text}</span>
+                  <span className="text-gray-500 text-[15px] leading-tight">{text}</span>
                 </div>
               ))}
             </div>
@@ -536,15 +533,15 @@ const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: strin
         { value: "1", label: "이상 감지", color: "text-orange-400" }
       ].map((stat, i) => (
         <div key={i} className="bg-white rounded-2xl p-2 flex flex-col items-center justify-center shadow-sm border border-gray-50">
-          <span className={`text-[16px] font-extrabold ${stat.color}`}>{stat.value}</span>
-          <span className="text-gray-400 text-[9px] whitespace-nowrap">{stat.label}</span>
+          <span className={`text-[20px] font-extrabold ${stat.color}`}>{stat.value}</span>
+          <span className="text-gray-400 text-[15px] whitespace-nowrap">{stat.label}</span>
         </div>
       ))}
     </div>
 
     {/* Seedling List Header */}
     <div className="px-4 mb-2">
-      <h2 className="text-[13px] font-extrabold text-slate-800">담당 묘목 목록</h2>
+      <h2 className="text-[17px] font-extrabold text-slate-800">담당 묘목 목록</h2>
     </div>
 
     {/* Seedling List */}
@@ -566,17 +563,17 @@ const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: strin
           </div>
           <div className="flex-1 overflow-hidden">
             <div className="flex items-center gap-1.5 mb-1">
-              <h3 className="text-[12px] font-bold text-slate-800 truncate">무화과 {seedling.id}</h3>
-              <div className={`${seedling.statusColor} text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
+              <h3 className="text-[15px] font-bold text-slate-800 truncate">무화과 {seedling.id}</h3>
+              <div className={`${seedling.statusColor} text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
                 {seedling.status}
               </div>
             </div>
-            <p className="text-gray-400 text-[9px] mb-1">입양자: {seedling.adopter}</p>
+            <p className="text-gray-400 text-[12px] mb-1">입양자: {seedling.adopter}</p>
             <div className="flex items-center gap-2">
               <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
                 <div className="h-full bg-brand-green w-3/5"></div>
               </div>
-              <span className="text-[9px] font-bold text-brand-green shrink-0">{seedling.step}</span>
+              <span className="text-[12px] font-bold text-brand-green shrink-0">{seedling.step}</span>
             </div>
           </div>
         </button>
@@ -588,8 +585,8 @@ const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: strin
 const CaregiverCheckScreen = () => (
   <div className="h-full flex flex-col pt-20 pb-2 overflow-hidden">
     <div className="px-5 mb-2">
-      <h2 className="text-[15px] font-extrabold text-slate-800">🌡 환경 점검</h2>
-      <p className="text-brand-green text-[11px] font-medium leading-tight">재배지 방문 시 수치를 입력해주세요</p>
+      <h2 className="text-[20px] font-extrabold text-slate-800">🌡 환경 점검</h2>
+      <p className="text-brand-green text-[15px] font-medium leading-tight">재배지 방문 시 수치를 입력해주세요</p>
     </div>
 
     <div className="flex-1 px-4 space-y-1.5 overflow-hidden flex flex-col mb-2">
@@ -624,10 +621,10 @@ const CaregiverCheckScreen = () => (
             {item.icon}
           </div>
           <div className="flex-1">
-            <span className="text-gray-400 text-[10px] font-bold">{item.label}</span>
-            <div className="text-[16px] font-extrabold text-slate-800 leading-none">{item.value}</div>
+            <span className="text-gray-400 text-[15px] font-bold">{item.label}</span>
+            <div className="text-[20px] font-extrabold text-slate-800 leading-none">{item.value}</div>
           </div>
-          <div className={`${item.statusColor} text-white text-[9px] px-2 py-0.5 rounded-full font-bold`}>
+          <div className={`${item.statusColor} text-white text-[12px] px-2 py-0.5 rounded-full font-bold`}>
             {item.status}
           </div>
         </div>
@@ -637,9 +634,9 @@ const CaregiverCheckScreen = () => (
       <div className="bg-[#FFF5F7] rounded-2xl p-3 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mt-1">
         <div className="flex items-center gap-1 mb-1.5">
           <div className="text-sm">✨</div>
-          <span className="text-[12px] font-bold text-slate-800">Gemini 진단 결과</span>
+          <span className="text-[15px] font-bold text-slate-800">Gemini 진단 결과</span>
         </div>
-        <p className="text-gray-500 text-[11px] leading-relaxed">
+        <p className="text-gray-500 text-[12px] leading-relaxed">
           조도가 기준치 이하입니다. LED 보광등을 켜주세요.<br />
           현재 습도도 높아 통풍을 권장합니다.
         </p>
@@ -661,8 +658,8 @@ const CaregiverLogScreen = () => (
     className="h-full flex flex-col pt-20 pb-2 overflow-hidden"
   >
     <div className="px-5 mb-2">
-      <h2 className="text-[15px] font-extrabold text-slate-800">📋 오늘의 일지</h2>
-      <p className="text-brand-green text-[11px] font-medium">입양자에게 성장 기록을 전달해요</p>
+      <h2 className="text-[20px] font-extrabold text-slate-800">📋 오늘의 일지</h2>
+      <p className="text-brand-green text-[15px] font-medium">입양자에게 성장 기록을 전달해요</p>
     </div>
 
     <div className="flex-1 px-4 space-y-2 overflow-hidden pb-2 flex flex-col overflow-y-hidden">
@@ -671,20 +668,20 @@ const CaregiverLogScreen = () => (
         <div className="border-2 border-dashed border-gray-100 rounded-xl h-24 flex flex-col items-center justify-center gap-1 cursor-pointer active:bg-gray-50 transition-colors">
           <Camera size={24} className="text-brand-green" />
           <div className="flex flex-col items-center">
-            <span className="text-[12px] font-bold text-brand-green">사진 추가하기</span>
-            <span className="text-gray-400 text-[10px]">묘목 상태를 찍어 업로드해주세요</span>
+            <span className="text-[15px] font-bold text-brand-green">사진 추가하기</span>
+            <span className="text-gray-400 text-[12px]">묘목 상태를 찍어 업로드해주세요</span>
           </div>
         </div>
       </div>
 
       {/* Growth Stage Selector */}
       <div className="space-y-1.5">
-        <h3 className="text-[12px] font-bold text-slate-800 ml-1">성장 단계</h3>
+        <h3 className="text-[15px] font-bold text-slate-800 ml-1">성장 단계</h3>
         <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
-          {['새싹', '잎 성장 중', '가지 발달', '묘목 완성'].map((stage) => (
+          {['뿌리', '잎 성장 중', '가지 발달', '묘목 완성'].map((stage) => (
             <button 
               key={stage}
-              className={`px-3 py-1.5 rounded-full text-[11px] font-bold whitespace-nowrap transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-[15px] font-bold whitespace-nowrap transition-colors ${
                 stage === '잎 성장 중' 
                 ? 'bg-brand-green text-white shadow-sm' 
                 : 'bg-white border border-gray-200 text-gray-400'
@@ -699,12 +696,12 @@ const CaregiverLogScreen = () => (
       {/* Text Input Area */}
       <div className="bg-white rounded-2xl p-3 border border-gray-100 shadow-sm flex-1 min-h-[80px] relative overflow-hidden">
         <textarea 
-          className="w-full h-full text-[12px] text-slate-700 bg-transparent resize-none outline-none italic placeholder:text-gray-300"
+          className="w-full h-full text-[15px] text-slate-700 bg-transparent resize-none outline-none italic placeholder:text-gray-300"
           placeholder="오늘의 성장 기록을 남겨주세요..."
         />
       </div>
 
-      <button className="w-full bg-brand-pink py-3 rounded-2xl text-white font-bold text-[14px] shadow-md active:scale-[0.98] transition-transform">
+      <button className="w-full bg-brand-pink py-3 rounded-2xl text-white font-bold text-[15px] shadow-md active:scale-[0.98] transition-transform">
         입양자에게 전달하기
       </button>
     </div>
