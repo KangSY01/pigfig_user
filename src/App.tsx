@@ -11,19 +11,16 @@ import {
   ChevronRight,
   Bug,
   Clock,
-  Camera,
-  Gift,
-  Scroll,
-  MessageSquare,
-  Settings,
-  ClipboardList,
   SprayCan,
-  Ghost
+  Ghost,
+  Camera,
+  Plus
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // --- Constants ---
 type Tab = 'home' | 'game' | 'mypage';
+type Role = 'none' | 'adopter' | 'caregiver';
 
 // --- Shared Components ---
 
@@ -95,11 +92,7 @@ const HomeScreen = () => (
     exit={{ opacity: 0 }}
     className="h-full flex flex-col relative overflow-hidden"
   >
-    <TopBar />
-    
-    {/* Content Container: Tightly spaced flex column */}
     <div className="flex-1 flex flex-col pt-16 pb-2">
-      {/* Alert Banner - Positioned 5px below top bar */}
       <div className="px-6 mt-[10px] mb-1">
         <motion.div 
           initial={{ y: -10, opacity: 0 }}
@@ -110,17 +103,13 @@ const HomeScreen = () => (
         </motion.div>
       </div>
 
-      {/* Tree & Pig Interaction Area - Scaled up tree to 1.5x */}
       <div className="flex-1 relative flex flex-col items-center justify-center overflow-hidden">
-        {/* Tree container with 1.5x scale */}
         <div className="relative z-0 flex items-end mb-8 pt-10">
           <TreeAsset scale={1.2} />
         </div>
 
-        {/* Pig character at base - repositioned for 1.5x tree scale */}
         <div className="absolute bottom-[22%] left-1/2 -translate-x-[75px] z-20">
           <div className="relative">
-            {/* Speech Bubble */}
             <motion.div 
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -133,7 +122,6 @@ const HomeScreen = () => (
           </div>
         </div>
 
-        {/* Side Action Buttons - Scaled down */}
         <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3">
           {[
             { icon: <Droplets className="text-blue-400" />, label: '물주기' },
@@ -154,7 +142,6 @@ const HomeScreen = () => (
         </div>
       </div>
 
-      {/* Bottom Status Panel - Compressed padding/margins */}
       <div className="px-5 mb-2">
         <div className="bg-white/70 backdrop-blur-md p-3.5 rounded-[2rem] border border-white shadow-lg">
           <div className="flex items-center justify-center gap-1 mb-2">
@@ -210,18 +197,14 @@ const GamesScreen = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="flex-1 flex flex-col h-full overflow-hidden"
+    className="flex-1 flex flex-col h-full overflow-hidden pt-16"
   >
-    <TopBar />
-    
-    <div className="flex-1 pt-20 px-4 pb-2 flex flex-col">
-      {/* In-page Heading */}
+    <div className="flex-1 px-4 pb-2 flex flex-col">
       <div className="mb-4 text-center">
         <h2 className="text-[18px] font-extrabold text-brand-pink mb-0.5">🎮 Pig.Fig. 게임</h2>
         <p className="text-brand-green text-[11px] font-bold">게임으로 아이템을 모아 돼지를 쫓아내세요!</p>
       </div>
 
-      {/* Game Grid - Scaled to fit */}
       <div className="grid grid-cols-2 gap-3 mb-4 shrink min-h-0">
         <GameCard 
           title="돼지 풍선 터뜨리기"
@@ -253,7 +236,6 @@ const GamesScreen = () => (
         />
       </div>
 
-      {/* Inventory Strip - Fixed height component */}
       <div className="bg-white rounded-2xl p-3 flex items-center justify-between shadow-sm border border-gray-100 mb-2">
         <span className="text-[11px] font-bold text-brand-green">보유 아이템</span>
         <div className="flex items-center gap-4">
@@ -284,10 +266,7 @@ const MyPageScreen = () => (
     exit={{ opacity: 0 }}
     className="flex-1 flex flex-col pt-16 h-full overflow-hidden"
   >
-    <TopBar />
-    
     <div className="flex-1 px-4 py-3 space-y-3 flex flex-col">
-      {/* Profile Card - Scaled down */}
       <div className="bg-white rounded-3xl p-3 flex flex-col items-center shadow-sm border border-gray-100">
         <div className="w-12 h-12 bg-brand-pink rounded-full flex items-center justify-center shadow-inner mb-2">
           <User size={24} className="text-white opacity-90" />
@@ -299,7 +278,6 @@ const MyPageScreen = () => (
         </div>
       </div>
 
-      {/* Menu List - Scaled down rows and icons */}
       <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 shrink min-h-0">
         {[
           { icon: '📸', label: '성장 타임라인', color: 'bg-brand-pink' },
@@ -332,7 +310,6 @@ const PruningScreen = ({ onComplete }: { onComplete: () => void; key?: string })
     exit={{ opacity: 0 }}
     className="h-screen w-screen bg-white relative flex flex-col font-sans overflow-hidden"
   >
-    {/* Bokeh Background Elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-green/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-pink/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -342,7 +319,6 @@ const PruningScreen = ({ onComplete }: { onComplete: () => void; key?: string })
     <TopBar />
     
     <div className="flex-1 flex flex-col items-center pt-24 px-6 z-10">
-      {/* Step Indicator */}
       <div className="flex items-center gap-1.5 mb-6">
         <div className="w-2.5 h-2.5 bg-brand-pink rounded-full"></div>
         <span className="text-[11px] font-bold text-brand-pink tracking-tight">STEP 1/1</span>
@@ -351,22 +327,16 @@ const PruningScreen = ({ onComplete }: { onComplete: () => void; key?: string })
       <h1 className="text-2xl font-extrabold text-brand-pink mb-2 font-rounded">첫 가지치기를 해주세요!</h1>
       <p className="text-brand-green text-sm font-medium mb-12">꾹 눌러서 가지를 잘라보세요</p>
 
-      {/* Branch Illustration with Interaction */}
       <div className="relative flex-1 w-full flex items-center justify-center">
         <div className="relative h-64 w-2">
-          {/* Main Branch */}
           <div className="absolute inset-0 bg-brand-brown rounded-full shadow-sm"></div>
-          
-          {/* The Pruning Point */}
           <button 
             onClick={onComplete}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center cursor-pointer group"
           >
-            {/* Glowing Pulse */}
             <div className="absolute inset-0 bg-brand-pink/30 rounded-full animate-ping"></div>
             <div className="absolute w-6 h-6 bg-brand-pink rounded-full shadow-lg group-hover:scale-110 transition-transform"></div>
             
-            {/* Scissor Emoji floating */}
             <motion.div 
               animate={{ y: [0, -5, 0], rotate: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -376,8 +346,6 @@ const PruningScreen = ({ onComplete }: { onComplete: () => void; key?: string })
               ✂️
             </motion.div>
           </button>
-          
-          {/* Decorative Leaves */}
           <div className="absolute -left-7 top-16 rotate-[-90deg] scale-110">🌱</div>
           <div className="absolute -right-7 bottom-16 rotate-[90deg] scale-110">🌱</div>
         </div>
@@ -390,23 +358,462 @@ const PruningScreen = ({ onComplete }: { onComplete: () => void; key?: string })
   </motion.div>
 );
 
+const RoleSelectionScreen = ({ onSelect }: { onSelect: (role: 'adopter' | 'caregiver') => void; key?: string }) => (
+  <motion.div 
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -20 }}
+    className="h-screen w-screen bg-brand-beige relative flex flex-col font-sans overflow-hidden"
+  >
+    <TopBar />
+    
+    <div className="flex-1 flex flex-col items-center justify-center px-6 pt-16">
+      <div className="flex flex-col items-center mb-10">
+        <div className="relative w-20 h-20 mb-5">
+          <div className="w-full h-full bg-brand-pink rounded-full flex items-center justify-center overflow-hidden border-2 border-white shadow-sm">
+            <PigAsset size="md" />
+            <div className="absolute -top-1 -right-1">
+              <Leaf size={24} className="text-brand-green fill-brand-green" />
+            </div>
+          </div>
+        </div>
+        <h1 className="text-[22px] font-extrabold text-slate-800 mb-2 font-rounded">어떤 역할로 시작할까요?</h1>
+        <p className="text-gray-500 text-[13px]">나에게 맞는 역할을 선택해주세요</p>
+      </div>
+
+      <div className="w-full space-y-4 max-w-sm">
+        <motion.button 
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => onSelect('adopter')}
+          className="w-full bg-white rounded-[24px] p-6 flex flex-col text-left shadow-sm border-l-[4px] border-brand-pink relative overflow-hidden"
+        >
+          <div className="w-12 h-12 bg-brand-pink/10 rounded-full flex items-center justify-center mb-4">
+            <span className="text-2xl">🌱</span>
+          </div>
+          <h2 className="text-lg font-bold text-brand-pink mb-1">입양자</h2>
+          <p className="text-gray-400 text-[12px] mb-4">무화과를 입양하고 성장을 지켜봐요</p>
+          <div className="self-end text-brand-pink text-[12px] font-bold">시작하기 →</div>
+        </motion.button>
+
+        <motion.button 
+          whileHover={{ scale: 1.02 }} 
+          whileTap={{ scale: 0.98 }}
+          onClick={() => onSelect('caregiver')}
+          className="w-full bg-white rounded-[24px] p-6 flex flex-col text-left shadow-sm border-l-[4px] border-brand-green relative overflow-hidden"
+        >
+          <div className="w-12 h-12 bg-brand-green/10 rounded-full flex items-center justify-center mb-4">
+            <span className="text-2xl">👨‍🌾</span>
+          </div>
+          <h2 className="text-lg font-bold text-brand-green mb-1">재배자</h2>
+          <p className="text-gray-400 text-[12px] mb-4">무화과를 직접 키우고 돌봐요</p>
+          <div className="self-end text-brand-green text-[12px] font-bold">시작하기 →</div>
+        </motion.button>
+      </div>
+
+      <div className="mt-12 flex flex-col items-center gap-1 opacity-60">
+        <p className="text-gray-500 text-[11px]">역할은 나중에 변경할 수 없어요</p>
+        <span className="text-gray-400 text-[10px]">v1.0.0</span>
+      </div>
+    </div>
+  </motion.div>
+);
+
+const CaregiverAnalysisScreen = ({ onBack }: { onBack: () => void; key?: string }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -20 }}
+    className="flex-1 flex flex-col pt-20 pb-4 overflow-hidden"
+  >
+    <div className="px-5 mb-4 flex items-center justify-between">
+      <div>
+        <h2 className="text-[18px] font-extrabold text-slate-800">🔬 묘목 상태 분석</h2>
+        <p className="text-brand-green text-[12px] font-medium">AI가 묘목 상태를 자동으로 분석해요</p>
+      </div>
+      <button onClick={onBack} className="text-gray-400 text-xs font-bold">닫기</button>
+    </div>
+
+    <div className="flex-1 px-4 space-y-4 overflow-y-auto pb-4">
+      {/* Analyzed Photo Display */}
+      <div className="bg-white rounded-2xl h-40 relative flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm mx-1">
+        <div className="opacity-60 scale-75 pt-10">
+          <TreeAsset scale={0.8} />
+        </div>
+        {/* Scan Line Animation */}
+        <motion.div 
+          animate={{ top: ['0%', '100%', '0%'] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          className="absolute left-0 right-0 h-0.5 bg-brand-green/30 shadow-[0_0_10px_rgba(125,200,122,0.5)] z-20"
+        />
+        <div className="absolute top-3 right-3 bg-brand-green text-white text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
+          분석 완료 ✓
+        </div>
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 opacity-60">
+          <div className="w-4 h-4 bg-orange-400 rounded-sm flex items-center justify-center text-[10px] text-white font-black italic">TF</div>
+          <span className="text-gray-500 text-[9px] font-bold">TensorFlow</span>
+        </div>
+      </div>
+
+      {/* Status Tags Section */}
+      <div>
+        <h3 className="text-[13px] font-bold text-slate-800 mb-3 ml-1">분석 결과</h3>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="bg-white border border-brand-green/30 text-brand-green text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 opacity-50">
+             ✓ 정상
+          </div>
+          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 opacity-50">
+             ✓ 수분부족
+          </div>
+          <div className="bg-white border border-brand-pink/30 text-brand-pink text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 opacity-50">
+             ✓ 과습
+          </div>
+          <div className="bg-brand-pink text-white text-[11px] font-bold px-3 py-2.5 rounded-2xl flex items-center gap-1.5 shadow-sm">
+             ⚠ 조명이상
+          </div>
+        </div>
+      </div>
+
+      {/* AI Report Card */}
+      <div className="bg-[#FFF5F7] rounded-2xl p-4 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mx-1">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-1.5">
+            <div className="text-sm">✨</div>
+            <span className="text-[14px] font-extrabold text-slate-800">AI 분석 리포트</span>
+          </div>
+          <span className="text-gray-400 text-[10px]">2026.05.08 오전 10:23</span>
+        </div>
+        
+        <div className="h-[1px] bg-[#FFE0E6] w-full mb-3" />
+
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-gray-400 text-[11px] font-bold">감지된 이상</span>
+          <div className="bg-brand-pink text-white text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
+            ⚠ 조명이상
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <h4 className="text-brand-pink font-bold text-[13px] mb-1">조명이상이 감지되었습니다.</h4>
+          <p className="text-gray-500 text-[12px] leading-relaxed">
+            보광등 위치를 조정하고 재촬영해주세요.
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h5 className="text-brand-green font-bold text-[12px]">권장 조치</h5>
+          <div className="space-y-1.5">
+            {[
+              "LED 보광등을 식물 위 30cm 위치로 조정",
+              "조도 기준치: 2000~3000 lux",
+              "조치 후 사진을 다시 업로드해주세요"
+            ].map((text, i) => (
+              <div key={i} className="flex items-start gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-brand-green/20 flex items-center justify-center mt-0.5 shrink-0">
+                  <div className="w-1.5 h-1.5 bg-brand-green rounded-full"></div>
+                </div>
+                <span className="text-gray-500 text-[11px] leading-tight">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 flex items-center justify-end gap-1 opacity-60">
+          <span className="text-gray-400 text-[9px] italic font-serif">powered by Gemini</span>
+          <div className="text-[10px]">✨</div>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
+const CaregiverDashboard = ({ onSelectSeedling }: { onSelectSeedling: (id: string) => void }) => (
+  <div className="flex-1 flex flex-col pt-20 pb-2 overflow-hidden">
+    {/* Summary Stat Cards Row */}
+    <div className="grid grid-cols-3 gap-2 px-4 mb-6">
+      {[
+        { value: "12", label: "담당 묘목", color: "text-brand-green" },
+        { value: "3", label: "완성 임박", color: "text-brand-pink" },
+        { value: "1", label: "이상 감지", color: "text-orange-400" }
+      ].map((stat, i) => (
+        <div key={i} className="bg-white rounded-2xl p-3 flex flex-col items-center justify-center shadow-sm border border-gray-50">
+          <span className={`text-[20px] font-extrabold ${stat.color}`}>{stat.value}</span>
+          <span className="text-gray-400 text-[10px] whitespace-nowrap">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+
+    {/* Seedling List Header */}
+    <div className="px-4 mb-3">
+      <h2 className="text-[14px] font-extrabold text-slate-800">담당 묘목 목록</h2>
+    </div>
+
+    {/* Seedling List */}
+    <div className="flex-1 px-4 space-y-2 overflow-y-auto flex flex-col pb-4">
+      {[
+        { id: "#001", adopter: "김입양", step: "3/5", status: "정상", statusColor: "bg-brand-green" },
+        { id: "#002", adopter: "이돌봄", step: "4/5", status: "정상", statusColor: "bg-brand-green" },
+        { id: "#003", adopter: "박관리", step: "2/5", status: "주의", statusColor: "bg-brand-pink" }
+      ].map((seedling, i) => (
+        <button 
+          key={i} 
+          onClick={() => onSelectSeedling(seedling.id)}
+          className="bg-white rounded-2xl p-3 flex items-center gap-3 shadow-sm border border-gray-50 text-left active:bg-gray-50 transition-colors"
+        >
+          <div className="w-11 h-11 bg-brand-green/20 rounded-xl flex items-center justify-center overflow-hidden shrink-0">
+            <div className="scale-50 translate-y-3">
+              <TreeAsset scale={0.5} />
+            </div>
+          </div>
+          <div className="flex-1 overflow-hidden">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <h3 className="text-[13px] font-bold text-slate-800 truncate">무화과 {seedling.id}</h3>
+              <div className={`${seedling.statusColor} text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold ml-auto`}>
+                {seedling.status}
+              </div>
+            </div>
+            <p className="text-gray-400 text-[10px] mb-1.5">입양자: {seedling.adopter}</p>
+            <div className="flex items-center gap-2">
+              <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div className="h-full bg-brand-green w-3/5"></div>
+              </div>
+              <span className="text-[10px] font-bold text-brand-green shrink-0">{seedling.step}단계</span>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+);
+
+const CaregiverCheckScreen = () => (
+  <div className="flex-1 flex flex-col pt-20 pb-4 overflow-hidden">
+    <div className="px-5 mb-4">
+      <h2 className="text-[18px] font-extrabold text-slate-800">🌡 환경 점검</h2>
+      <p className="text-brand-green text-[12px] font-medium">재배지 방문 시 수치를 입력해주세요</p>
+    </div>
+
+    <div className="flex-1 px-4 space-y-2 overflow-hidden flex flex-col mb-4">
+      {[
+        { 
+          label: "온도", 
+          value: "16°C", 
+          status: "정상", 
+          bgColor: "bg-orange-50", 
+          icon: <Sun className="text-orange-400" size={20} />, 
+          statusColor: "bg-brand-green" 
+        },
+        { 
+          label: "습도", 
+          value: "82%", 
+          status: "주의", 
+          bgColor: "bg-blue-50", 
+          icon: <Droplets className="text-blue-400" size={20} />, 
+          statusColor: "bg-brand-pink" 
+        },
+        { 
+          label: "조도", 
+          value: "낮음", 
+          status: "주의", 
+          bgColor: "bg-yellow-50", 
+          icon: <Sun className="text-yellow-400" size={20} />, 
+          statusColor: "bg-brand-pink" 
+        }
+      ].map((item, i) => (
+        <div key={i} className="bg-white rounded-2xl p-4 flex items-center shadow-sm border border-gray-50">
+          <div className={`w-9 h-9 ${item.bgColor} rounded-full flex items-center justify-center mr-3`}>
+            {item.icon}
+          </div>
+          <div className="flex-1">
+            <span className="text-gray-400 text-[11px] font-bold">{item.label}</span>
+            <div className="text-[20px] font-extrabold text-slate-800 leading-none">{item.value}</div>
+          </div>
+          <div className={`${item.statusColor} text-white text-[10px] px-2 py-0.5 rounded-full font-bold`}>
+            {item.status}
+          </div>
+        </div>
+      ))}
+
+      {/* AI Diagnosis Result Card */}
+      <div className="bg-[#FFF5F7] rounded-2xl p-4 border border-brand-pink/10 border-l-[4px] border-l-brand-pink mt-2">
+        <div className="flex items-center gap-1.5 mb-2">
+          <div className="text-lg">✨</div>
+          <span className="text-[13px] font-bold text-slate-800">Gemini 진단 결과</span>
+        </div>
+        <p className="text-gray-500 text-[12px] leading-relaxed">
+          조도가 기준치 이하입니다. LED 보광등을 켜주세요.<br />
+          현재 습도도 높아 통풍을 권장합니다.
+        </p>
+      </div>
+    </div>
+
+    <div className="px-4 mb-2">
+      <button className="w-full bg-brand-green py-4 rounded-2xl text-white font-bold text-[15px] shadow-md active:scale-[0.98] transition-transform">
+        조치 완료
+      </button>
+    </div>
+  </div>
+);
+
+const CaregiverLogScreen = () => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.98 }}
+    animate={{ opacity: 1, scale: 1 }}
+    className="flex-1 flex flex-col pt-20 pb-4 overflow-hidden"
+  >
+    <div className="px-5 mb-4">
+      <h2 className="text-[18px] font-extrabold text-slate-800">📋 오늘의 일지</h2>
+      <p className="text-brand-green text-[12px] font-medium">입양자에게 성장 기록을 전달해요</p>
+    </div>
+
+    <div className="flex-1 px-4 space-y-4 overflow-y-auto pb-4 flex flex-col">
+      {/* Photo Upload Area */}
+      <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
+        <div className="border-2 border-dashed border-gray-100 rounded-xl h-28 flex flex-col items-center justify-center gap-1 cursor-pointer active:bg-gray-50 transition-colors">
+          <Camera size={28} className="text-brand-green" />
+          <div className="flex flex-col items-center">
+            <span className="text-[13px] font-bold text-brand-green">사진 추가하기</span>
+            <span className="text-gray-400 text-[11px]">묘목 상태를 찍어 업로드해주세요</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Growth Stage Selector */}
+      <div>
+        <h3 className="text-[13px] font-bold text-slate-800 mb-3 ml-1">성장 단계</h3>
+        <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
+          {['새싹', '잎 성장 중', '가지 발달', '묘목 완성'].map((stage) => (
+            <button 
+              key={stage}
+              className={`px-4 py-2 rounded-full text-[12px] font-bold whitespace-nowrap transition-colors ${
+                stage === '잎 성장 중' 
+                ? 'bg-brand-green text-white shadow-sm' 
+                : 'bg-white border border-gray-200 text-gray-400'
+              }`}
+            >
+              {stage}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Text Input Area */}
+      <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm flex-1 min-h-[100px] relative">
+        <textarea 
+          className="w-full h-full text-[13px] text-slate-700 bg-transparent resize-none outline-none italic placeholder:text-gray-300"
+          placeholder="오늘의 성장 기록을 남겨주세요..."
+        />
+        {/* Subtle pink border on focus simulation via a thin line or just the existing card is fine */}
+      </div>
+
+      <button className="w-full bg-brand-pink py-4 rounded-2xl text-white font-bold text-[15px] shadow-md active:scale-[0.98] transition-transform">
+        입양자에게 전달하기
+      </button>
+    </div>
+  </motion.div>
+);
+
+const CaregiverHomeScreen = () => {
+  const [caregiverTab, setCaregiverTab] = useState('home');
+  const [viewingSeedlingId, setViewingSeedlingId] = useState<string | null>(null);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="flex-1 flex flex-col h-full overflow-hidden"
+    >
+      <AnimatePresence mode="wait">
+        {caregiverTab === 'home' ? (
+          viewingSeedlingId ? (
+            <CaregiverAnalysisScreen 
+              key="analysis" 
+              onBack={() => setViewingSeedlingId(null)} 
+            />
+          ) : (
+            <motion.div
+              key="dashboard"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              className="flex-1 flex flex-col overflow-hidden"
+            >
+              <CaregiverDashboard onSelectSeedling={setViewingSeedlingId} />
+            </motion.div>
+          )
+        ) : caregiverTab === 'check' ? (
+          <motion.div
+            key="check"
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            className="flex-1 flex flex-col overflow-hidden"
+          >
+            <CaregiverCheckScreen />
+          </motion.div>
+        ) : (
+          <CaregiverLogScreen key="log" />
+        )}
+      </AnimatePresence>
+
+      {/* Caregiver Navigation Bar */}
+      <nav className="h-20 bg-white border-t border-gray-100 flex items-center justify-around px-2 z-[100] pb-2">
+        <button 
+          onClick={() => setCaregiverTab('home')}
+          className="flex flex-col items-center gap-1.5 flex-1 relative h-full justify-center"
+        >
+          <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${caregiverTab === 'home' ? 'opacity-100' : 'opacity-0'}`} />
+          <Home size={22} strokeWidth={2.5} className={caregiverTab === 'home' ? 'text-brand-green' : 'text-gray-300'} />
+          <span className={`text-[10px] font-extrabold ${caregiverTab === 'home' ? 'text-brand-green' : 'text-gray-400'}`}>홈</span>
+        </button>
+        
+        <button 
+          onClick={() => setCaregiverTab('log')}
+          className="flex flex-col items-center gap-1.5 flex-1 relative h-full justify-center"
+        >
+          <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${caregiverTab === 'log' ? 'opacity-100' : 'opacity-0'}`} />
+          <span className={`text-2xl ${caregiverTab === 'log' ? 'grayscale-0' : 'grayscale opacity-50'}`}>📋</span>
+          <span className={`text-[10px] font-extrabold ${caregiverTab === 'log' ? 'text-brand-green' : 'text-gray-400'}`}>일지</span>
+        </button>
+
+        <button 
+          onClick={() => setCaregiverTab('check')}
+          className="flex flex-col items-center gap-1.5 flex-1 relative h-full justify-center"
+        >
+          <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${caregiverTab === 'check' ? 'opacity-100' : 'opacity-0'}`} />
+          <span className={`text-2xl ${caregiverTab === 'check' ? 'grayscale-0' : 'grayscale opacity-50'}`}>🌡️</span>
+          <span className={`text-[10px] font-extrabold ${caregiverTab === 'check' ? 'text-brand-green' : 'text-gray-400'}`}>환경점검</span>
+        </button>
+      </nav>
+    </motion.div>
+  );
+};
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>('home');
   const [hasPruned, setHasPruned] = useState(false);
+  const [role, setRole] = useState<Role>('none');
 
   return (
     <div id="app-container" className="h-screen w-screen bg-brand-beige flex flex-col font-sans overflow-hidden">
       <AnimatePresence mode="wait">
-        {!hasPruned ? (
-          <PruningScreen key="onboarding" onComplete={() => setHasPruned(true)} />
-        ) : (
+        {role === 'none' && (
+          <RoleSelectionScreen key="role-select" onSelect={setRole} />
+        )}
+        
+        {role === 'adopter' && !hasPruned && (
+          <PruningScreen key="pruning" onComplete={() => setHasPruned(true)} />
+        )}
+
+        {role === 'adopter' && hasPruned && (
           <motion.div 
-            key="main-app"
+            key="adopter-main"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex-1 flex flex-col overflow-hidden"
           >
-            {/* Main Content Area */}
+            <TopBar />
             <div className="flex-1 relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {activeTab === 'home' && <HomeScreen key="home" />}
@@ -415,35 +822,46 @@ export default function App() {
               </AnimatePresence>
             </div>
 
-            {/* Bottom Navigation */}
             <nav className="h-20 bg-white border-t border-gray-100 flex items-center justify-around px-2 z-[100] pb-2">
               <button 
                 onClick={() => setActiveTab('home')}
                 className="flex flex-col items-center gap-1.5 flex-1 relative h-full justify-center"
               >
+                <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'home' ? 'opacity-100' : 'opacity-0'}`} />
                 <Home size={22} strokeWidth={2.5} className={activeTab === 'home' ? 'text-brand-green' : 'text-gray-300'} />
                 <span className={`text-[10px] font-extrabold ${activeTab === 'home' ? 'text-brand-green' : 'text-gray-400'}`}>홈</span>
-                <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'home' ? 'opacity-100' : 'opacity-0'}`} />
               </button>
               
               <button 
                 onClick={() => setActiveTab('game')}
                 className="flex flex-col items-center gap-1.5 flex-1 relative h-full justify-center"
               >
+                <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'game' ? 'opacity-100' : 'opacity-0'}`} />
                 <Gamepad2 size={24} strokeWidth={2.5} className={activeTab === 'game' ? 'text-brand-green' : 'text-gray-300'} />
                 <span className={`text-[10px] font-extrabold ${activeTab === 'game' ? 'text-brand-green' : 'text-gray-400'}`}>게임</span>
-                <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'game' ? 'opacity-100' : 'opacity-0'}`} />
               </button>
 
               <button 
                 onClick={() => setActiveTab('mypage')}
                 className="flex flex-col items-center gap-1.5 flex-1 relative h-full justify-center"
               >
+                <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'mypage' ? 'opacity-100' : 'opacity-0'}`} />
                 <User size={22} strokeWidth={2.5} className={activeTab === 'mypage' ? 'text-brand-green' : 'text-gray-300'} />
                 <span className={`text-[10px] font-extrabold ${activeTab === 'mypage' ? 'text-brand-green' : 'text-gray-400'}`}>마이페이지</span>
-                <div className={`absolute top-0 w-8 h-0.5 bg-brand-green rounded-full transition-opacity ${activeTab === 'mypage' ? 'opacity-100' : 'opacity-0'}`} />
               </button>
             </nav>
+          </motion.div>
+        )}
+
+        {role === 'caregiver' && (
+          <motion.div 
+            key="caregiver-main"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex-1 flex flex-col overflow-hidden"
+          >
+            <TopBar />
+            <CaregiverHomeScreen />
           </motion.div>
         )}
       </AnimatePresence>
